@@ -46,3 +46,20 @@ function notPrimes(a,b){
 
   return resArr.filter(n => isNotPrime(n));
 }
+
+// or
+
+const notPrimes = (a, b) => {
+  const result = [];
+  for (let i = a; i < b; i++)
+    if (String(i).split``.every(e => isPrime(e)) && !isPrime(i)) 
+      result.push(i);
+  return result;
+}
+
+const isPrime = n => {
+  for (let i = 2, s = Math.sqrt(n); i <= s; i++)
+    if (n % i === 0) 
+      return false; 
+  return n > 1;
+}
