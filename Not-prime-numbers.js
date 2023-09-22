@@ -7,24 +7,24 @@ whose digits are made up of prime numbers (2, 3, 5, 7) but which are not primes 
 
 // Solution
 
-function notPrimes(a,b){
+function notPrimes(a,b) {
   let arr = []; 
-  for (let i = a; i < b; i++){
+  for (let i = a; i < b; i++) {
     if (!/[014689]/.test(i)) {
-      for (let j = 2; j <= Math.sqrt(i); j++){
+      for (let j = 2; j <= Math.sqrt(i); j++) {
         if (i % j === 0) { arr.push(i); break;}
       }
     }
   }
   return arr;
- }
+}
 
  // or
 
- const notPrimes = (a, b) => {
-  const prime = [2,3,5,7],
-        len = b - a,
-        resArr = [];
+const notPrimes = (a, b) => {
+const prime = [2,3,5,7],
+      len = b - a,
+      resArr = [];
         
   const isNotPrime = num => {
     const top = num > 100 ? Math.ceil(Math.sqrt(num)) : num;
