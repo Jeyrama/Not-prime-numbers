@@ -18,3 +18,31 @@ function notPrimes(a,b){
   }
   return arr;
  }
+
+ // or
+
+ const notPrimes = (a, b) => {
+  const prime = [2,3,5,7],
+        len = b - a,
+        resArr = [];
+        
+  const isNotPrime = num => {
+    const top = num > 100 ? Math.ceil(Math.sqrt(num)) : num;
+      
+    for (let j = 2; j < top; j++) {
+      if (num % j == 0) return true;
+    }
+    
+    return false;
+  };
+  
+  for (let i = 0; i < len; i++) {
+    let el = a + i + '';
+    
+    if ([...el].every(n => prime.includes(+n))) {
+      resArr.push(+el);
+    }
+  }
+
+  return resArr.filter(n => isNotPrime(n));
+}
