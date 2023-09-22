@@ -63,3 +63,33 @@ const isPrime = n => {
       return false; 
   return n > 1;
 }
+
+// or
+
+function notPrimes(a,b){
+	let nums = [];
+	
+	for(let i=a;i<b;i++){
+		if(testByRules(i)) if(!isPrime(i)) nums.push(i);
+	}
+	return nums;
+}
+
+function isPrime(num){
+	if(num==2) return true;
+	if(num==3) return true;
+	if(num%2==0) return false;
+	if(num%3==0) return false;
+	if(num!=5 && num%5==0) return false;
+	if(num!=7 && num%7==0) return false;
+	for(let i=11;i<num;i++){
+		if(num%i==0){
+			return false;
+		}
+	}
+	return true;
+}
+
+function testByRules(number){
+	return (String(number).match(/[014689]/)) ? false : true;
+}
